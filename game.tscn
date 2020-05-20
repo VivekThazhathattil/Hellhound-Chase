@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://bg.png" type="Texture" id=1]
 [ext_resource path="res://ScrollingBG.gd" type="Script" id=2]
@@ -9,23 +9,35 @@
 [ext_resource path="res://man/man-jump2.png" type="Texture" id=7]
 [ext_resource path="res://man/man-jump1.png" type="Texture" id=8]
 [ext_resource path="res://man/man-jump3.png" type="Texture" id=9]
+[ext_resource path="res://player.gd" type="Script" id=10]
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 3 )
 shader_param/scroll_speed = null
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 13.6026, 14.166 )
+
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "run",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 7 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 605.163, 10 )
 
 [node name="game" type="Node2D"]
 
 [node name="bg" type="TextureRect" parent="."]
-material = SubResource( 2 )
+material = SubResource( 1 )
 margin_left = -3.4248
 margin_top = 3.4248
 margin_right = 1916.58
@@ -37,10 +49,29 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+scroll_speed = 0.4
 
-[node name="stickman" type="AnimatedSprite" parent="."]
-position = Vector2( 477.55, 350.975 )
-scale = Vector2( 1.55097, 1.34045 )
-frames = SubResource( 3 )
-animation = "run"
-frame = 2
+[node name="player" type="KinematicBody2D" parent="."]
+position = Vector2( 463.186, 352.111 )
+scale = Vector2( 1.1113, 2.25722 )
+script = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+position = Vector2( 25.081, 2.32037 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 4 )
+
+[node name="stickman" type="AnimatedSprite" parent="player"]
+position = Vector2( 22.3316, -0.688583 )
+scale = Vector2( 1.39564, 0.593851 )
+frames = SubResource( 2 )
+animation = "jump"
+playing = true
+
+[node name="ground" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ground"]
+position = Vector2( 461.68, 403.24 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground/StaticBody2D"]
+shape = SubResource( 3 )
