@@ -1,0 +1,15 @@
+1. Random skribbly missiles in both directions
+2. mid air collisions of missiles hitting each other
+3. Upon hitting the ground or player , missiles explode
+and the nearest area is engulfed in flames
+4. astroids from top to down of the screen
+5. if the player goes off the screen, he falls dead
+b/c of gas poisoning
+6. Levels speed up with time
+7. Score marker
+8. Lightning effect
+9. Unlock player props - cape, crown, mask, new backgrounds
+10. pickup item - speed scene (lightning symbol), slow scene(tortoise),
+invincible (mask symbol), shield (to deflect missiles) etc 
+11. asteroids on hitting ground shatters into particles
+and catch small fires
