@@ -1,4 +1,4 @@
-1. Random skribbly missiles in both directions
+1. Random skribbly missiles - (DONE)
 2. mid air collisions of missiles hitting each other
 3. Upon hitting the ground or player , missiles explode
 and the nearest area is engulfed in flames
@@ -13,3 +13,4 @@ b/c of gas poisoning
 invincible (mask symbol), shield (to deflect missiles) etc 
 11. asteroids on hitting ground shatters into particles
 and catch small fires
+12. free queue for the missiles leaving the viewport
