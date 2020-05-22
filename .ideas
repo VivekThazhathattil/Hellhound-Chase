@@ -1,6 +1,6 @@
 1. Random skribbly missiles - (DONE)
 2. mid air collisions of missiles hitting each other
-3. Upon hitting the ground or player , missiles explode
+3. Upon hitting the ground or player , missiles explode - (DONE)
 and the nearest area is engulfed in flames
 4. astroids from top to down of the screen
 5. if the player goes off the screen, he falls dead
@@ -14,3 +14,4 @@ invincible (mask symbol), shield (to deflect missiles) etc
 11. asteroids on hitting ground shatters into particles
 and catch small fires
 12. free queue for the missiles leaving the viewport
+13. print message dodge bonus as per event

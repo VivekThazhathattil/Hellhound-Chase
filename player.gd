@@ -18,6 +18,10 @@ func _process(delta):
 	if collision and not get_node("/root/game").is_player_dead:
 		$stickman.play("run")
 		
+	if get_position().y < init_y - get_viewport().size.y/2:
+		$stickman.play("dead_fall")
+		get_node("/root/game").is_player_dead = true
+		
 func _input(event):
 	if event.is_action_pressed("jump"):
 		if not get_node("/root/game").is_player_dead:
@@ -25,4 +29,3 @@ func _input(event):
 			$stickman.play("jump")
 		else:
 			get_tree().reload_current_scene()
-

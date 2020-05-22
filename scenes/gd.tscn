@@ -1,25 +1,24 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scenes/bg_shuffle1.gd" type="Script" id=1]
-[ext_resource path="res://gd.png" type="Texture" id=2]
+[ext_resource path="res://gd.png" type="Texture" id=1]
+[ext_resource path="res://scenes/bg_shuffle1.gd" type="Script" id=2]
+[ext_resource path="res://bg_shuffle2.gd" type="Script" id=3]
 
 [node name="gd" type="Node2D"]
 
-[node name="gd_1" type="Sprite" parent="."]
-scale = Vector2( 0.533, 0.556 )
-texture = ExtResource( 2 )
+[node name="gd1" type="Sprite" parent="."]
+texture = ExtResource( 1 )
 centered = false
 region_enabled = true
-region_rect = Rect2( 0, 0, 7680, 1080 )
-script = ExtResource( 1 )
-VELOCITY = -5.0
+region_rect = Rect2( 0, 0, 2048, 1080 )
+script = ExtResource( 2 )
+VELOCITY = -6.0
 
-[node name="gd_2" type="Sprite" parent="."]
-scale = Vector2( 0.533, 0.556 )
-texture = ExtResource( 2 )
+[node name="gd2" type="Sprite" parent="."]
+position = Vector2( 1024, 0 )
+texture = ExtResource( 1 )
 centered = false
-offset = Vector2( 1024, 0 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 7680, 1080 )
-script = ExtResource( 1 )
-VELOCITY = -5.0
+region_rect = Rect2( 0, 0, 2048, 600 )
+script = ExtResource( 3 )
+VELOCITY = -6.0
