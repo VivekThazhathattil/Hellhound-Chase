@@ -5,15 +5,15 @@ var pos
 var active = true
 var time
 var ampl
+var fix_y
 
 func _ready():
 	randomize()
 	time = 0
 	vel = Vector2(rand_range(-1000, -500), 0)
-	ampl = rand_range(-400,100)
-	vel.y = 0
+	ampl = rand_range(-800,100)
 	spin = rand_range(-PI, PI)
-	pos = Vector2(1316,330)
+	pos = Vector2(1316,370)
 	$missile_body.play("stable")
 	set_process(true)
 	
@@ -36,7 +36,8 @@ func _on_missile_body_entered(_body):
 	get_node("/root/game/player/stickman").play("explode")
 	get_node("/root/game/player").GRAVITY = 300
 	get_node("/root/game/player").speed_y = -get_node("/root/game/player").JUMP_FORCE/2
-	$trail.queue_free()
+	if $trail.is_inside_tree():
+		$trail.queue_free()
 	get_node("/root/game").is_player_dead = true
 	yield(get_node("/root/game/player/stickman"), "animation_finished")
 	get_node("/root/game/player").queue_free()

@@ -24,11 +24,20 @@ func _process(delta):
 	time += delta
 
 	if time > count*2:
-		count += 1 - 0.01*count
+		count += 1 - 0.005*count
 		missile = s.instance()
 		add_child(missile)
 	if is_player_dead == true:
-		get_node("reload_button").visible = true
+		_player_death_event()
 	else:
 			tot_score += delta*100
 			scorebox.update_score(tot_score)
+			
+func _player_death_event():
+		get_node("reload_button").visible = true
+		$sky/sky1.VELOCITY = 0
+		$sky/sky2.VELOCITY = 0
+		$gd/gd1.VELOCITY = 0
+		$gd/gd2.VELOCITY = 0
+		$bg_new/bg_new1.VELOCITY = 0
+		$bg_new/bg_new2.VELOCITY = 0
