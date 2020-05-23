@@ -8,10 +8,12 @@ var is_player_dead = false
 onready var s = load("res://scenes/missile.tscn")
 onready var h = load("res://scenes/hud.tscn")
 onready var t = load("res://trees.tscn")
+onready var i = load("res://special_item.tscn")
 var new_tree
 var scorebox
 var dodge_bonus = 0
 var tot_score = 0
+var item_count = 0
 
 func _ready():
 	scorebox = h.instance()
@@ -34,6 +36,11 @@ func _process(delta):
 		count += 1.3
 		new_tree = t.instance()
 		add_child(new_tree)
+	if int(time+1) % 9 ==0 and item_count == 0:
+		var new_item = i.instance()
+		add_child(new_item)
+		item_count += 1
+		
 	if is_player_dead == true:
 		_player_death_event()
 	else:
@@ -42,6 +49,7 @@ func _process(delta):
 			
 func _player_death_event():
 		get_node("reload_button").visible = true
+		get_node("/root/game/chaser").play("idle")
 		$sky/sky1.VELOCITY = 0
 		$sky/sky2.VELOCITY = 0
 		$gd/gd1.VELOCITY = 0

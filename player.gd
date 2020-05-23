@@ -5,16 +5,20 @@ var velocity = Vector2()
 var init_y
 const JUMP_FORCE = 600
 var GRAVITY = 2000
+const max_jumps = 5
+var jump_count = 0
+var collision
 
 func _ready():
 	init_y = get_position().y
 	$stickman.play("run")
+	get_node("/root/game/chaser").play("run")
 	set_process(true)
 
 func _process(delta):
 	speed_y += GRAVITY * delta
 	velocity.y = speed_y * delta
-	var collision = move_and_collide(velocity)
+	collision = move_and_collide(velocity)
 	if collision and not get_node("/root/game").is_player_dead:
 		$stickman.play("run")
 		
@@ -24,8 +28,12 @@ func _process(delta):
 		
 func _input(event):
 	if event.is_action_pressed("jump"):
-		if not get_node("/root/game").is_player_dead:
-			speed_y = -JUMP_FORCE
-			$stickman.play("jump")
-		else:
-			get_tree().reload_current_scene()
+		jump_count += 1
+		if jump_count < max_jumps:
+			if not get_node("/root/game").is_player_dead:
+				speed_y = -JUMP_FORCE
+				$stickman.play("jump")
+			else:
+				get_tree().reload_current_scene()
+	if collision:
+		jump_count = 0

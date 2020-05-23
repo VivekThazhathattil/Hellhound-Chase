@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=77 format=2]
 
 [ext_resource path="res://scenes/manual_bg_shuffle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://man/man_dead_fall.png" type="Texture" id=2]
@@ -8,13 +8,17 @@
 [ext_resource path="res://audio/driving_in_the_rain.wav" type="AudioStream" id=6]
 [ext_resource path="res://AudioStreamPlayer2D.gd" type="Script" id=7]
 [ext_resource path="res://icon.png" type="Texture" id=8]
+[ext_resource path="res://sprites/chaser.png" type="Texture" id=9]
 [ext_resource path="res://player.gd" type="Script" id=10]
+[ext_resource path="res://sprites/chaser_idle.png" type="Texture" id=11]
+[ext_resource path="res://chaser.gd" type="Script" id=12]
 [ext_resource path="res://ground.gd" type="Script" id=13]
 [ext_resource path="res://game.gd" type="Script" id=14]
 [ext_resource path="res://sprites/explosion_spritesheet.png" type="Texture" id=15]
 [ext_resource path="res://sprites/reload.png" type="Texture" id=16]
 [ext_resource path="res://scenes/gd.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/sky.tscn" type="PackedScene" id=18]
+[ext_resource path="res://sprites/blood_burst.png" type="Texture" id=19]
 
 [sub_resource type="Shader" id=31]
 code = "shader_type canvas_item;
@@ -210,6 +214,86 @@ flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 325, 0, 65, 48 )
 
+[sub_resource type="AtlasTexture" id=66]
+flags = 4
+atlas = ExtResource( 19 )
+region = Rect2( 0, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=67]
+flags = 4
+atlas = ExtResource( 19 )
+region = Rect2( 128, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=68]
+flags = 4
+atlas = ExtResource( 19 )
+region = Rect2( 256, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=69]
+flags = 4
+atlas = ExtResource( 19 )
+region = Rect2( 384, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=70]
+flags = 4
+atlas = ExtResource( 19 )
+region = Rect2( 0, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=71]
+flags = 4
+atlas = ExtResource( 19 )
+region = Rect2( 128, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=72]
+flags = 4
+atlas = ExtResource( 19 )
+region = Rect2( 256, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=73]
+flags = 4
+atlas = ExtResource( 19 )
+region = Rect2( 384, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=74]
+flags = 4
+atlas = ExtResource( 19 )
+region = Rect2( 0, 256, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=75]
+flags = 4
+atlas = ExtResource( 19 )
+region = Rect2( 128, 256, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=76]
+flags = 4
+atlas = ExtResource( 19 )
+region = Rect2( 256, 256, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=77]
+flags = 4
+atlas = ExtResource( 19 )
+region = Rect2( 384, 256, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=78]
+flags = 4
+atlas = ExtResource( 19 )
+region = Rect2( 0, 384, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=79]
+flags = 4
+atlas = ExtResource( 19 )
+region = Rect2( 128, 384, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=80]
+flags = 4
+atlas = ExtResource( 19 )
+region = Rect2( 256, 384, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=81]
+flags = 4
+atlas = ExtResource( 19 )
+region = Rect2( 384, 384, 128, 128 )
+
 [sub_resource type="SpriteFrames" id=29]
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
@@ -231,10 +315,68 @@ animations = [ {
 "loop": true,
 "name": "jump",
 "speed": 10.0
+}, {
+"frames": [ SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ), SubResource( 81 ) ],
+"loop": false,
+"name": "blood_burst",
+"speed": 10.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=30]
 extents = Vector2( 605.163, 10 )
+
+[sub_resource type="AtlasTexture" id=61]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 423, 0, 141, 160 )
+
+[sub_resource type="AtlasTexture" id=62]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 564, 0, 141, 160 )
+
+[sub_resource type="AtlasTexture" id=63]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 705, 0, 141, 160 )
+
+[sub_resource type="AtlasTexture" id=64]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 846, 0, 141, 160 )
+
+[sub_resource type="AtlasTexture" id=65]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 987, 0, 141, 160 )
+
+[sub_resource type="AtlasTexture" id=58]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 189, 153 )
+
+[sub_resource type="AtlasTexture" id=59]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 189, 0, 189, 153 )
+
+[sub_resource type="AtlasTexture" id=60]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 378, 0, 189, 153 )
+
+[sub_resource type="SpriteFrames" id=57]
+animations = [ {
+"frames": [ SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ), SubResource( 65 ) ],
+"loop": false,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 58 ), SubResource( 59 ), SubResource( 60 ) ],
+"loop": true,
+"name": "run",
+"speed": 4.0
+} ]
 
 [node name="game" type="Node2D"]
 script = ExtResource( 14 )
@@ -270,7 +412,7 @@ shape = SubResource( 1 )
 position = Vector2( 22.3316, -0.688583 )
 scale = Vector2( 1.39564, 0.593851 )
 frames = SubResource( 29 )
-animation = "jump"
+animation = "blood_burst"
 
 [node name="ground" type="Node2D" parent="."]
 script = ExtResource( 13 )
@@ -289,3 +431,10 @@ texture = ExtResource( 16 )
 stream = ExtResource( 6 )
 autoplay = true
 script = ExtResource( 7 )
+
+[node name="chaser" type="AnimatedSprite" parent="."]
+frames = SubResource( 57 )
+animation = "idle"
+centered = false
+offset = Vector2( 0, 250 )
+script = ExtResource( 12 )

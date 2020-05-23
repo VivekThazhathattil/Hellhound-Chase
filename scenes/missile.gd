@@ -13,7 +13,7 @@ func _ready():
 	vel = Vector2(rand_range(-1000, -500), 0)
 	ampl = rand_range(-800,100)
 	spin = rand_range(-PI, PI)
-	pos = Vector2(1316,rand_range(300,390))
+	pos = Vector2(1316,rand_range(370,390))
 	$missile_body.play("stable")
 	set_process(true)
 	
