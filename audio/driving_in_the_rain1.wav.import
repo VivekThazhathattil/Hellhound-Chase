@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/driving_in_the_rain1.wav-59ef28cd7f581fbfcabd47d95ad82bad.sample"
+
+[deps]
+
+source_file="res://audio/driving_in_the_rain1.wav"
+dest_files=[ "res://.import/driving_in_the_rain1.wav-59ef28cd7f581fbfcabd47d95ad82bad.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
