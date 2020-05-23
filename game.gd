@@ -7,6 +7,8 @@ var progress_no = 0.5
 var is_player_dead = false
 onready var s = load("res://scenes/missile.tscn")
 onready var h = load("res://scenes/hud.tscn")
+onready var t = load("res://trees.tscn")
+var new_tree
 var scorebox
 var dodge_bonus = 0
 var tot_score = 0
@@ -22,11 +24,16 @@ func _ready():
 	
 func _process(delta):
 	time += delta
-
+# missile spawn
 	if time > count*2:
 		count += 1 - 0.005*count
 		missile = s.instance()
 		add_child(missile)
+# tree spawn
+	if time > count*4.5:
+		count += 1.3
+		new_tree = t.instance()
+		add_child(new_tree)
 	if is_player_dead == true:
 		_player_death_event()
 	else:

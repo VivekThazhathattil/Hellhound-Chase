@@ -242,6 +242,7 @@ script = ExtResource( 14 )
 [node name="sky" parent="." instance=ExtResource( 18 )]
 
 [node name="fog" type="Node2D" parent="."]
+visible = false
 
 [node name="Sprite" type="Sprite" parent="fog"]
 material = SubResource( 32 )
