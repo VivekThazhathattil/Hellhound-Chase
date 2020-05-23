@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Hellhound"
-run/main_scene="res://game.tscn"
+run/main_scene="res://scenes/main_screen.tscn"
 config/icon="res://hellhound_icon.png"
 
 [display]

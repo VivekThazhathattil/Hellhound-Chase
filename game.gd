@@ -36,7 +36,7 @@ func _process(delta):
 		count += 1.3
 		new_tree = t.instance()
 		add_child(new_tree)
-	if int(time+1) % 9 ==0 and item_count == 0:
+	if int(time+1) % 4 ==0 and item_count == 0:
 		var new_item = i.instance()
 		add_child(new_item)
 		item_count += 1

@@ -6,7 +6,6 @@ var active = true
 var time
 var ampl
 var fix_y
-
 func _ready():
 	randomize()
 	time = 0
@@ -14,6 +13,7 @@ func _ready():
 	ampl = rand_range(-800,100)
 	spin = rand_range(-PI, PI)
 	pos = Vector2(1316,rand_range(370,390))
+	modulate = Color(randf(),randf(),randf(),1)
 	$missile_body.play("stable")
 	set_process(true)
 	
@@ -22,7 +22,8 @@ func _process(delta):
 	if vel.y == 0:
 		ampl = rand_range(-800,100)
 	vel.y = ampl*sin(time*5)
-	set_rotation(get_rotation() + spin * delta)
+	var new_vel = vel.normalized()
+	set_rotation(atan2(vel.y, vel.x))
 	pos += vel * delta
 #	if abs(pos.y - get_node("/root/game/player").init_y) < 10 and not get_node("/root/game").is_player_dead:
 #		get_node("/root/game").dodge_bonus += 100

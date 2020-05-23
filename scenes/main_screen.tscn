@@ -7,68 +7,58 @@
 [ext_resource path="res://sprites/logo.png" type="Texture" id=5]
 [ext_resource path="res://scenes/main_screen.gd" type="Script" id=6]
 
-[node name="main_screen" type="CenterContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="main_screen" type="MarginContainer"]
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="vbc" type="VBoxContainer" parent="."]
-margin_left = 80.0
-margin_right = 944.0
-margin_bottom = 607.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 864.0
+margin_bottom = 555.0
 
-[node name="logo" type="TextureRect" parent="vbc"]
+[node name="title" type="TextureRect" parent="VBoxContainer"]
 margin_right = 864.0
 margin_bottom = 136.0
 texture = ExtResource( 5 )
 
-[node name="vbc2" type="HBoxContainer" parent="vbc"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 140.0
-margin_right = 640.0
-margin_bottom = 607.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-alignment = 1
+margin_right = 864.0
+margin_bottom = 555.0
 
-[node name="menu_options" type="VBoxContainer" parent="vbc/vbc2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 margin_right = 636.0
-margin_bottom = 467.0
-custom_constants/separation = 30
-alignment = 1
+margin_bottom = 415.0
 
-[node name="continue_button" type="Button" parent="vbc/vbc2/menu_options"]
+[node name="new_game" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_right = 636.0
-margin_bottom = 124.0
-icon = ExtResource( 1 )
-flat = true
-
-[node name="new_game_button" type="Button" parent="vbc/vbc2/menu_options"]
-margin_top = 154.0
-margin_right = 636.0
-margin_bottom = 297.0
+margin_bottom = 143.0
 icon = ExtResource( 3 )
-flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="options_button" type="Button" parent="vbc/vbc2/menu_options"]
-margin_top = 327.0
+[node name="continue" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 147.0
 margin_right = 636.0
-margin_bottom = 467.0
+margin_bottom = 271.0
+icon = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="options" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 275.0
+margin_right = 636.0
+margin_bottom = 415.0
 icon = ExtResource( 2 )
-flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="CenterContainer" type="CenterContainer" parent="vbc/vbc2"]
-margin_left = 640.0
-margin_right = 640.0
-margin_bottom = 467.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Sprite" type="Sprite" parent="vbc/vbc2/CenterContainer"]
-position = Vector2( 133.567, 174.664 )
+[node name="hellhound_icon" type="Sprite" parent="VBoxContainer/HBoxContainer"]
+position = Vector2( 828.055, 208.252 )
+scale = Vector2( 1.68362, 1.58003 )
 texture = ExtResource( 4 )
-[connection signal="pressed" from="vbc/vbc2/menu_options/continue_button" to="." method="_on_continue_button_pressed"]
-[connection signal="pressed" from="vbc/vbc2/menu_options/new_game_button" to="." method="_on_new_game_button_pressed"]
-[connection signal="pressed" from="vbc/vbc2/menu_options/options_button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/new_game" to="." method="_on_new_game_pressed"]

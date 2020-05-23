@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://scenes/missile.gd" type="Script" id=1]
-[ext_resource path="res://sprites/missile.png" type="Texture" id=2]
+[ext_resource path="res://sprites/fireball_spritesheet.png" type="Texture" id=2]
 [ext_resource path="res://scenes/trail.tscn" type="PackedScene" id=3]
 [ext_resource path="res://sprites/explosion_spritesheet.png" type="Texture" id=4]
+[ext_resource path="res://sprites/smoke_texture.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 2384.21
@@ -43,25 +44,111 @@ flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 128, 64, 64, 64 )
 
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 266, 133 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 266, 0, 266, 133 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 532, 0, 266, 133 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 133, 266, 133 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 266, 133, 266, 133 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 532, 133, 266, 133 )
+
+[sub_resource type="AtlasTexture" id=26]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 266, 266, 133 )
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 266, 266, 266, 133 )
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 532, 266, 266, 133 )
+
+[sub_resource type="AtlasTexture" id=29]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 399, 266, 133 )
+
+[sub_resource type="AtlasTexture" id=30]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 266, 399, 266, 133 )
+
+[sub_resource type="AtlasTexture" id=31]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 532, 399, 266, 133 )
+
+[sub_resource type="AtlasTexture" id=32]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 532, 266, 133 )
+
+[sub_resource type="AtlasTexture" id=33]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 266, 532, 266, 133 )
+
+[sub_resource type="AtlasTexture" id=34]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 532, 532, 266, 133 )
+
+[sub_resource type="AtlasTexture" id=35]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 665, 266, 133 )
+
+[sub_resource type="AtlasTexture" id=36]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 266, 665, 266, 133 )
+
+[sub_resource type="AtlasTexture" id=37]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 532, 665, 266, 133 )
+
 [sub_resource type="SpriteFrames" id=18]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "stable",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
 "loop": true,
 "name": "explosion",
 "speed": 20.0
+}, {
+"frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ) ],
+"loop": true,
+"name": "stable",
+"speed": 10.0
 } ]
 
 [sub_resource type="Curve" id=19]
-_data = [ Vector2( 0.010989, 0.554545 ), 0.0, 1.83182, 0, 0, Vector2( 0.989011, 1 ), 0.740191, 0.0, 0, 0 ]
-
-[sub_resource type="Gradient" id=20]
-offsets = PoolRealArray( 0, 0.549669, 0.854305 )
-colors = PoolColorArray( 0.84375, 0.737818, 0.0461426, 1, 0.625, 0.0455856, 0.0170898, 1, 0, 0, 0, 1 )
+_data = [ Vector2( 0, 0.245455 ), 0.0, 1.83182, 0, 0, Vector2( 0.988701, 0.945454 ), 0.740191, 0.0, 0, 0 ]
 
 [node name="missile" type="Area2D"]
 position = Vector2( 1316.56, 192.686 )
@@ -73,17 +160,19 @@ scale = Vector2( 0.005, 0.005 )
 shape = SubResource( 1 )
 
 [node name="missile_body" type="AnimatedSprite" parent="."]
-scale = Vector2( 0.561915, 0.646323 )
+scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 18 )
 animation = "stable"
 
 [node name="trail" parent="." instance=ExtResource( 3 )]
+visible = false
 width = 15.0
 width_curve = SubResource( 19 )
 default_color = Color( 0.4, 0.501961, 1, 1 )
-gradient = SubResource( 20 )
+texture = ExtResource( 5 )
+texture_mode = 1
 targetPath = NodePath("..")
-trailLength = 7
+trailLength = 15
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 [connection signal="body_entered" from="." to="." method="_on_missile_body_entered"]
