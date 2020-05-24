@@ -22,7 +22,6 @@ func _process(delta):
 	if vel.y == 0:
 		ampl = rand_range(-800,100)
 	vel.y = ampl*sin(time*5)
-	var new_vel = vel.normalized()
 	set_rotation(atan2(vel.y, vel.x))
 	pos += vel * delta
 #	if abs(pos.y - get_node("/root/game/player").init_y) < 10 and not get_node("/root/game").is_player_dead:

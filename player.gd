@@ -12,7 +12,7 @@ var collision
 func _ready():
 	init_y = get_position().y
 	$stickman.play("run")
-	get_node("/root/game/chaser").play("run")
+	get_node("/root/game/chaser_area/chaser").play("run")
 	set_process(true)
 
 func _process(delta):
@@ -33,7 +33,5 @@ func _input(event):
 			if not get_node("/root/game").is_player_dead:
 				speed_y = -JUMP_FORCE
 				$stickman.play("jump")
-			else:
-				get_tree().reload_current_scene()
 	if collision:
 		jump_count = 0

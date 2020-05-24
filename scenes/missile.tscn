@@ -160,7 +160,7 @@ scale = Vector2( 0.005, 0.005 )
 shape = SubResource( 1 )
 
 [node name="missile_body" type="AnimatedSprite" parent="."]
-scale = Vector2( 0.3, 0.3 )
+scale = Vector2( 0.6, 0.3 )
 frames = SubResource( 18 )
 animation = "stable"
 
