@@ -1,58 +1,81 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://sprites/continue.png" type="Texture" id=1]
+[ext_resource path="res://sprites/exit.png" type="Texture" id=1]
 [ext_resource path="res://sprites/options.png" type="Texture" id=2]
 [ext_resource path="res://sprites/new_game.png" type="Texture" id=3]
 [ext_resource path="res://hellhound_icon.png" type="Texture" id=4]
 [ext_resource path="res://sprites/logo.png" type="Texture" id=5]
 [ext_resource path="res://scenes/main_screen.gd" type="Script" id=6]
+[ext_resource path="res://sprites/credits.png" type="Texture" id=7]
 
 [node name="main_screen" type="MarginContainer"]
+margin_right = 1024.0
+margin_bottom = 665.0
 script = ExtResource( 6 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_right = 864.0
-margin_bottom = 555.0
+margin_right = 1024.0
+margin_bottom = 740.0
 
 [node name="title" type="TextureRect" parent="VBoxContainer"]
-margin_right = 864.0
+margin_right = 1024.0
 margin_bottom = 136.0
 texture = ExtResource( 5 )
+stretch_mode = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 140.0
-margin_right = 864.0
-margin_bottom = 555.0
+margin_right = 1024.0
+margin_bottom = 740.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer"]
+margin_right = 650.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 650, 600 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/ScrollContainer"]
 margin_right = 636.0
-margin_bottom = 415.0
+margin_bottom = 800.0
+rect_min_size = Vector2( 0, 800 )
 
-[node name="new_game" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="new_game" type="Button" parent="VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer"]
 margin_right = 636.0
 margin_bottom = 143.0
+size_flags_horizontal = 0
 icon = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="continue" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="options" type="Button" parent="VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer"]
 margin_top = 147.0
 margin_right = 636.0
-margin_bottom = 271.0
-icon = ExtResource( 1 )
+margin_bottom = 287.0
+size_flags_vertical = 0
+icon = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="options" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 275.0
+[node name="credits" type="Button" parent="VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 291.0
 margin_right = 636.0
-margin_bottom = 415.0
-icon = ExtResource( 2 )
+margin_bottom = 398.0
+size_flags_vertical = 0
+icon = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="exit" type="Button" parent="VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer"]
+margin_top = 402.0
+margin_right = 636.0
+margin_bottom = 525.0
+size_flags_vertical = 0
+icon = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -61,4 +84,7 @@ __meta__ = {
 position = Vector2( 828.055, 208.252 )
 scale = Vector2( 1.68362, 1.58003 )
 texture = ExtResource( 4 )
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/new_game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/new_game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]

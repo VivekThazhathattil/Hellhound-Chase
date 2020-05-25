@@ -47,7 +47,7 @@ func _process(delta):
 		$chaser_area._chaser_death_event()
 		scorebox.update_level(level)
 	else:
-			tot_score += level + delta*100
+			tot_score += 5*level + delta*100
 			scorebox.update_score(tot_score)
 			
 func _player_death_event():

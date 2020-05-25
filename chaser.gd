@@ -1,6 +1,5 @@
 extends Area2D
-
-
+var temp_level = 0
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -28,10 +27,14 @@ func _on_chaser_area_body_entered(body):
 
 func _chaser_death_event():
 	$chaser.play("deteriorate")
+	print("temp level " + str(temp_level))
 	position.x -= 10
 	if get_node("/root/game").level < 100 and level_update_flag == 0:
+		temp_level += 1
 		print(get_parent().level)
-		get_parent().level += 1
+		if temp_level == get_parent().level:
+			get_parent().level += 1
+			temp_level = 0
 		level_update_flag = 1
 	yield($chaser,"animation_finished")
 	position.x = -100

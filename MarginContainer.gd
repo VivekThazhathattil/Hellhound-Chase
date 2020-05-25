@@ -15,5 +15,5 @@ func _on_return2menu_pressed():
 
 
 func _on_exit_pressed():
-	get_parent().queue.free()
+	get_parent().queue_free()
 	get_tree().quit()

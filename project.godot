@@ -15,8 +15,9 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Hellhound"
-run/main_scene="res://scenes/main_screen.tscn"
+config/name="Hellhound Run"
+run/main_scene="res://scenes/loading_screen.tscn"
+boot_splash/image="res://sprites/loading_screen.png"
 config/icon="res://hellhound_icon.png"
 
 [display]
