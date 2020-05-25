@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=2]
+[gd_scene load_steps=110 format=2]
 
 [ext_resource path="res://man/man_dead_fall.png" type="Texture" id=2]
 [ext_resource path="res://scenes/bg_new.tscn" type="PackedScene" id=3]
@@ -14,7 +14,6 @@
 [ext_resource path="res://ground.gd" type="Script" id=13]
 [ext_resource path="res://game.gd" type="Script" id=14]
 [ext_resource path="res://sprites/explosion_spritesheet.png" type="Texture" id=15]
-[ext_resource path="res://sprites/reload.png" type="Texture" id=16]
 [ext_resource path="res://scenes/gd.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/sky.tscn" type="PackedScene" id=18]
 [ext_resource path="res://sprites/blood_burst.png" type="Texture" id=19]
@@ -588,10 +587,6 @@ position = Vector2( 461.68, 403.24 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground/StaticBody2D"]
 shape = SubResource( 48 )
 
-[node name="reload_button" type="Sprite" parent="."]
-position = Vector2( 506.485, 178.397 )
-texture = ExtResource( 16 )
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )
 autoplay = true
@@ -612,5 +607,13 @@ scale = Vector2( 2, 30 )
 shape = SubResource( 90 )
 
 [node name="second_menu" parent="." instance=ExtResource( 21 )]
+
+[node name="timer_for_spec_item" type="Timer" parent="."]
+autostart = true
+
+[node name="timer_for_missile" type="Timer" parent="."]
+autostart = true
 [connection signal="finished" from="AudioStreamPlayer2D" to="AudioStreamPlayer2D" method="_on_AudioStreamPlayer2D_finished"]
 [connection signal="body_entered" from="chaser_area" to="chaser_area" method="_on_chaser_area_body_entered"]
+[connection signal="timeout" from="timer_for_spec_item" to="." method="_on_timer_for_spec_item_timeout"]
+[connection signal="timeout" from="timer_for_missile" to="." method="_on_timer_for_missile_timeout"]

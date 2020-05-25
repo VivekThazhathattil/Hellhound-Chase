@@ -25,21 +25,21 @@ func _ready():
 	scorebox.update_level(level)
 	screen_size = OS.get_screen_size()
 	time = 0
-	get_node("reload_button").visible = false
+	_update_wait_times()
 	set_process(true)
-	
+
 func _process(delta):
 	time += delta
-# missile spawn
-	if time > count*(float(max_levels)/10 - float(level)/10) and not is_player_dead:
-		count += 1 - 0.005*count
-		missile = s.instance()
-		add_child(missile)
-# item spawn
-	if int(time+1) % 4 ==0 and item_count == 0 and not is_player_dead:
-		var new_item = i.instance()
-		add_child(new_item)
-		item_count += 1
+## missile spawn
+#	if time > count*(float(max_levels)/10 - float(level)/10) and not is_player_dead:
+#		count += 1 - 0.05*count
+#		missile = s.instance()
+#		add_child(missile)
+## item spawn
+#	if int(time+1) % 4 ==0 and item_count == 0 and not is_player_dead:
+#		var new_item = i.instance()
+#		add_child(new_item)
+#		item_count += 1
 		
 	if is_player_dead:
 		_player_death_event()
@@ -47,7 +47,7 @@ func _process(delta):
 		$chaser_area._chaser_death_event()
 		scorebox.update_level(level)
 	else:
-			tot_score += 5*level + delta*100
+			tot_score += level
 			scorebox.update_score(tot_score)
 			
 func _player_death_event():
@@ -59,3 +59,18 @@ func _player_death_event():
 		$gd/gd2.VELOCITY = 0
 		$bg_new/bg_new1.VELOCITY = 0
 		$bg_new/bg_new2.VELOCITY = 0
+		$timer_for_missile.paused = true
+		$timer_for_spec_item.paused = true
+
+func _update_wait_times():
+	$timer_for_missile.wait_time = 3*(float(max_levels-level)/max_levels)
+	$timer_for_spec_item.wait_time = 5*(float(max_levels-level)/max_levels)
+
+func _on_timer_for_spec_item_timeout():
+	var new_item = i.instance()
+	add_child(new_item)
+	item_count += 1
+
+func _on_timer_for_missile_timeout():
+	missile = s.instance()
+	add_child(missile)

@@ -9,32 +9,37 @@
 [ext_resource path="res://sprites/credits.png" type="Texture" id=7]
 
 [node name="main_screen" type="MarginContainer"]
-margin_right = 1024.0
-margin_bottom = 665.0
+margin_right = 1054.0
+margin_bottom = 740.0
+rect_min_size = Vector2( 1024, 600 )
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_right = 1024.0
+margin_right = 1054.0
 margin_bottom = 740.0
+rect_min_size = Vector2( 1024, 600 )
 
 [node name="title" type="TextureRect" parent="VBoxContainer"]
-margin_right = 1024.0
+margin_right = 864.0
 margin_bottom = 136.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 texture = ExtResource( 5 )
 stretch_mode = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 140.0
-margin_right = 1024.0
+margin_right = 1054.0
 margin_bottom = 740.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer"]
 margin_right = 650.0
 margin_bottom = 600.0
 rect_min_size = Vector2( 650, 600 )
+mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/ScrollContainer"]
 margin_right = 636.0
@@ -80,10 +85,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="hellhound_icon" type="Sprite" parent="VBoxContainer/HBoxContainer"]
-position = Vector2( 828.055, 208.252 )
-scale = Vector2( 1.68362, 1.58003 )
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 654.0
+margin_right = 1028.0
+margin_bottom = 450.0
+rect_min_size = Vector2( 374, 450 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="hellhound_icon" type="Sprite" parent="VBoxContainer/HBoxContainer/CenterContainer"]
+scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 4 )
+centered = false
+offset = Vector2( 40, 70 )
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/new_game" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/credits" to="." method="_on_credits_pressed"]

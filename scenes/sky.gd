@@ -11,7 +11,8 @@ func _ready():
 	sky_arr.insert(0,preload("res://sky.png"))
 	sky_arr.insert(1,preload("res://sprites/sky_2.png"))
 	sky_arr.insert(2,preload("res://sprites/dusky_sky.png"))
-	var rand_bg_idx = rand_range(0,3)
+	sky_arr.insert(3,preload("res://sprites/white.png"))
+	var rand_bg_idx = rand_range(0,4)
 	$sky1.set_texture(sky_arr[rand_bg_idx])
 	$sky2.set_texture(sky_arr[rand_bg_idx])
-	pass # Replace with function body.
+	modulate = Color(randf(),randf(),randf())

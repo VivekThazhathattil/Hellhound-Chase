@@ -43,7 +43,9 @@ var credits = [
 		"https://godotengine.org/license",
 		"",
 		"Art created with Gimp software",
-		"https://www.gimp.org/"
+		"https://www.gimp.org/",
+		"Icon made with game-icons website",
+		"https://game-icons.net"
 	],[
 		"Special thanks",
 		"My parents",
