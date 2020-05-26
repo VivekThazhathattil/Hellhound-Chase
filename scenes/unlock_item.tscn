@@ -1,0 +1,29 @@
+[gd_scene format=2]
+
+[node name="unlock_item" type="VBoxContainer"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "button"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_top = 104.0
+margin_right = 100.0
+margin_bottom = 135.0
+text = "
+label"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

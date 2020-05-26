@@ -37,7 +37,10 @@ var credits = [
 		"Driving In The Rain -  İlker Yalçıner (ilkeryalciner.com)"
 	],[
 		"Sound Effects",
-		"-"
+		"menu button sounds - Lavacoal123 (freesound.org)"
+	],[
+		"Font",
+		"Neuropol"
 	],[
 		"Tools used",
 		"Developed with Godot Engine",
@@ -120,3 +123,9 @@ func _unhandled_input(event):
 		speed_up = true
 	if event.is_action_released("ui_down") and !event.is_echo():
 		speed_up = false
+
+
+func _on_go_back_pressed():
+	if 	get_tree().change_scene("res://scenes/main_screen.tscn") != OK:
+		print ("An unexpected error occured when trying to switch to the scene")
+

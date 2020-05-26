@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/button_theme.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/options screen.gd" type="Script" id=2]
+
+[node name="options_screen" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.0862745, 0.0705882, 0.0784314, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 990.0
+margin_bottom = 480.0
+rect_min_size = Vector2( 800, 400 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/VBoxContainer"]
+margin_right = 960.0
+margin_bottom = 450.0
+rect_min_size = Vector2( 960, 450 )
+
+[node name="missile_trail_toggle" type="CheckButton" parent="ColorRect/VBoxContainer/VBoxContainer"]
+margin_right = 960.0
+margin_bottom = 40.0
+pressed = true
+text = "Ghost trail for the missiles"
+
+[node name="hellhound_trail_toggle" type="CheckButton" parent="ColorRect/VBoxContainer/VBoxContainer"]
+margin_top = 44.0
+margin_right = 960.0
+margin_bottom = 84.0
+pressed = true
+text = "Particle trail for Hell Hound"
+
+[node name="fog" type="CheckButton" parent="ColorRect/VBoxContainer/VBoxContainer"]
+margin_top = 88.0
+margin_right = 960.0
+margin_bottom = 128.0
+text = "fog in the background (experimental, may not work)"
+
+[node name="sound" type="CheckButton" parent="ColorRect/VBoxContainer/VBoxContainer"]
+margin_top = 132.0
+margin_right = 960.0
+margin_bottom = 172.0
+pressed = true
+text = "Music and other sound effects"
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect/VBoxContainer"]
+margin_top = 454.0
+margin_right = 960.0
+margin_bottom = 534.0
+rect_min_size = Vector2( 960, 80 )
+
+[node name="go_back" type="Button" parent="ColorRect/VBoxContainer/CenterContainer"]
+margin_left = 446.0
+margin_top = 25.0
+margin_right = 514.0
+margin_bottom = 55.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource( 1 )
+text = "Go Back"
+[connection signal="toggled" from="ColorRect/VBoxContainer/VBoxContainer/missile_trail_toggle" to="." method="_on_missile_trail_toggle_toggled"]
+[connection signal="toggled" from="ColorRect/VBoxContainer/VBoxContainer/hellhound_trail_toggle" to="." method="_on_hellhound_trail_toggle_toggled"]
+[connection signal="toggled" from="ColorRect/VBoxContainer/VBoxContainer/fog" to="." method="_on_fog_toggled"]
+[connection signal="toggled" from="ColorRect/VBoxContainer/VBoxContainer/sound" to="." method="_on_sound_toggled"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/CenterContainer/go_back" to="." method="_on_go_back_pressed"]

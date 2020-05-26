@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/button_theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/in_game_buttons.gd" type="Script" id=2]
+[ext_resource path="res://button_press_sound.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://neuropol x rg.ttf"
@@ -46,5 +47,7 @@ text = "Go Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="button_press_sound" parent="." instance=ExtResource( 3 )]
 [connection signal="pressed" from="pause_button" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]

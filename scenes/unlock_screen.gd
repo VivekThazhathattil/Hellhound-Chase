@@ -1,4 +1,4 @@
-extends HBoxContainer
+extends VBoxContainer
 
 
 # Declare member variables here. Examples:
@@ -16,17 +16,6 @@ func _ready():
 #	pass
 
 
-func _on_pause_button_pressed():
-		$button_press_sound.play()
-		get_tree().paused = not get_tree().paused
-		if get_tree().paused:
-			$pause_button.text = "Unpause"
-		else:
-			$pause_button.text = "Pause"
-		
-func _on_back_button_pressed():
-	get_tree().paused = false
-	$button_press_sound.play()
-	get_parent().queue_free()
+func _on_goback_pressed():
 	if 	get_tree().change_scene("res://scenes/main_screen.tscn") != OK:
 		print ("An unexpected error occured when trying to switch to the scene")

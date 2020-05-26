@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/button_theme.tres" type="Theme" id=1]
 [ext_resource path="res://sprites/menu_bg.png" type="Texture" id=2]
 [ext_resource path="res://hellhound_icon1.png" type="Texture" id=3]
+[ext_resource path="res://button_press_sound.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sprites/logo.png" type="Texture" id=5]
 [ext_resource path="res://scenes/main_screen.gd" type="Script" id=6]
+[ext_resource path="res://scenes/ScrollContainer.gd" type="Script" id=7]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://neuropol x rg.ttf"
@@ -23,6 +25,9 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
+
+[node name="button_press_sound" parent="." instance=ExtResource( 4 )]
+position = Vector2( 88, 428 )
 
 [node name="ColorRect" type="TextureRect" parent="."]
 margin_right = 1028.0
@@ -53,6 +58,7 @@ margin_bottom = 600.0
 rect_min_size = Vector2( 650, 600 )
 mouse_filter = 2
 scroll_horizontal_enabled = false
+script = ExtResource( 7 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/ScrollContainer"]
 margin_right = 638.0
@@ -67,6 +73,7 @@ margin_left = 88.0
 margin_right = 638.0
 margin_bottom = 104.0
 rect_min_size = Vector2( 550, 100 )
+mouse_filter = 1
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme = ExtResource( 1 )
@@ -82,6 +89,7 @@ margin_top = 144.0
 margin_right = 638.0
 margin_bottom = 248.0
 rect_min_size = Vector2( 550, 100 )
+mouse_filter = 1
 size_flags_horizontal = 8
 theme = ExtResource( 1 )
 custom_fonts/font = SubResource( 2 )
@@ -96,6 +104,7 @@ margin_top = 288.0
 margin_right = 638.0
 margin_bottom = 392.0
 rect_min_size = Vector2( 550, 100 )
+mouse_filter = 1
 size_flags_horizontal = 8
 theme = ExtResource( 1 )
 custom_fonts/font = SubResource( 2 )
@@ -110,6 +119,7 @@ margin_top = 432.0
 margin_right = 638.0
 margin_bottom = 536.0
 rect_min_size = Vector2( 550, 100 )
+mouse_filter = 1
 size_flags_horizontal = 8
 theme = ExtResource( 1 )
 custom_fonts/font = SubResource( 2 )
@@ -145,8 +155,13 @@ scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 3 )
 centered = false
 offset = Vector2( 40, 70 )
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/new_game" to="." method="_on_new_game_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/new_game" to="." method="_on_new_game_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/unlocks" to="." method="_on_unlocks_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/unlocks" to="." method="_on_unlocks_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/options" to="." method="_on_options_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/credits" to="." method="_on_credits_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/credits" to="." method="_on_credits_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/exit" to="." method="_on_exit_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]

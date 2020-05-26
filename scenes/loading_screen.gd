@@ -13,4 +13,11 @@ func _ready():
 
 
 func _on_begin_button_pressed():
+	$button_press_sound.play()
 	get_tree().change_scene("res://scenes/main_screen.tscn")
+
+
+
+
+func _on_begin_button_mouse_entered():
+	$button_press_sound.play()

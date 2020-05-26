@@ -21,6 +21,7 @@ const max_levels = 100
 var ingame_buttons
 
 func _ready():
+	
 	$second_menu.visible = false
 	scorebox = h.instance()
 	add_child(scorebox)
@@ -33,6 +34,8 @@ func _ready():
 	screen_size = OS.get_screen_size()
 	time = 0
 	_update_wait_times()
+
+	
 	set_process(true)
 
 func _process(delta):

@@ -17,3 +17,15 @@ func _on_return2menu_pressed():
 func _on_exit_pressed():
 	get_parent().queue_free()
 	get_tree().quit()
+
+
+func _on_restart_mouse_entered():
+	$button_press_sound.play()
+
+
+func _on_return2menu_mouse_entered():
+	$button_press_sound.play()
+
+
+func _on_exit_mouse_entered():
+	$button_press_sound.play()

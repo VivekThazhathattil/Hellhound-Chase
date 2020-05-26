@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://MarginContainer.gd" type="Script" id=1]
 [ext_resource path="res://scenes/button_theme.tres" type="Theme" id=2]
+[ext_resource path="res://button_press_sound.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://neuropol x rg.ttf"
@@ -32,6 +33,9 @@ font_data = SubResource( 5 )
 
 [node name="second_menu" type="Node2D"]
 script = ExtResource( 1 )
+
+[node name="button_press_sound" parent="." instance=ExtResource( 3 )]
+position = Vector2( 200, 200 )
 
 [node name="restart_container" type="MarginContainer" parent="."]
 margin_left = 200.0
@@ -80,6 +84,9 @@ margin_bottom = 77.0
 theme = ExtResource( 2 )
 custom_fonts/font = SubResource( 6 )
 text = "Exit"
+[connection signal="mouse_entered" from="restart_container/restart" to="." method="_on_restart_mouse_entered"]
 [connection signal="pressed" from="restart_container/restart" to="." method="_on_restart_pressed"]
+[connection signal="mouse_entered" from="return_container/return2menu" to="." method="_on_return2menu_mouse_entered"]
 [connection signal="pressed" from="return_container/return2menu" to="." method="_on_return2menu_pressed"]
+[connection signal="mouse_entered" from="exit_container/exit" to="." method="_on_exit_mouse_entered"]
 [connection signal="pressed" from="exit_container/exit" to="." method="_on_exit_pressed"]
