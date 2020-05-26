@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/button_theme.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/in_game_buttons.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://neuropol x rg.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://neuropol x rg.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 3 )
+
+[node name="in_game_buttons" type="HBoxContainer"]
+pause_mode = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pause_button" type="Button" parent="."]
+margin_right = 21.0
+margin_bottom = 18.0
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Pause"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back_button" type="Button" parent="."]
+margin_left = 25.0
+margin_right = 48.0
+margin_bottom = 18.0
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Go Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="pause_button" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]

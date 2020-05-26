@@ -11,12 +11,14 @@ onready var s = load("res://scenes/missile.tscn")
 onready var h = load("res://scenes/hud.tscn")
 onready var t = load("res://trees.tscn")
 onready var i = load("res://special_item.tscn")
+onready var ss = load("res://scenes/in_game_buttons.tscn")
 var new_tree
 var scorebox
 var dodge_bonus = 0
 var tot_score = 0
 var item_count = 0
 const max_levels = 100
+var ingame_buttons
 
 func _ready():
 	$second_menu.visible = false
@@ -24,6 +26,10 @@ func _ready():
 	add_child(scorebox)
 	scorebox.show()
 	scorebox.update_level(level)
+	
+	ingame_buttons = ss.instance()
+	add_child(ingame_buttons)
+	
 	screen_size = OS.get_screen_size()
 	time = 0
 	_update_wait_times()
@@ -52,7 +58,9 @@ func _process(delta):
 			scorebox.update_score(tot_score)
 
 func _player_death_event():
+		ingame_buttons.visible = false
 		$second_menu.visible = true
+		$player/CPUParticles2D.visible = false
 		get_node("/root/game/chaser_area/chaser").play("idle")
 		$sky/sky1.VELOCITY = 0
 		$sky/sky2.VELOCITY = 0

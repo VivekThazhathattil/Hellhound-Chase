@@ -30,6 +30,7 @@ var credits = [
 		"Art",
 		"Hell Hound - ansimuz (ansimuz.com)",
 		"Dragon - spriters-resource.com",
+		"Menu background - dklon",
 		"Other assets - opengameart.org/"
 	],[
 		"Music",

@@ -18,3 +18,7 @@ func _on_credits_pressed():
 
 func _on_options_pressed():
 	pass # Replace with function body.
+
+
+func _on_unlocks_pressed():
+	pass # Replace with function body.

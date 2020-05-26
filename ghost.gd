@@ -12,5 +12,5 @@ func _ready():
 	$alpha_tween.interpolate_property(self, "modulate", Color(c.r,c.g,c.b,1), Color(c.r,c.g,c.b,0), 0.3, Tween.TRANS_SINE, Tween.EASE_OUT)
 	$alpha_tween.start()
 
-func _on_alpha_tween_tween_completed(object, key):
+func _on_alpha_tween_tween_completed(_object, _key):
 	queue_free()
