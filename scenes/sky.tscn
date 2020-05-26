@@ -24,3 +24,5 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 2048, 600 )
 script = ExtResource( 3 )
 VELOCITY = -0.5
+
+[node name="Tween" type="Tween" parent="."]

@@ -30,9 +30,9 @@ func _chaser_death_event():
 	position.x -= 10
 	if get_node("/root/game").level < 100 and level_update_flag == 0:
 		temp_level += 1
+		get_parent()._modulate_colors()
 		if temp_level*2 >= get_parent().level:
 			get_parent().level += 1
-			get_parent()._modulate_colors()
 			get_parent()._update_wait_times()
 			temp_level = 0
 		level_update_flag = 1

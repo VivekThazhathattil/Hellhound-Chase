@@ -22,3 +22,5 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 2048, 600 )
 script = ExtResource( 3 )
+
+[node name="Tween" type="Tween" parent="."]

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scenes/button_theme.tres" type="Theme" id=1]
 [ext_resource path="res://sprites/menu_bg.png" type="Texture" id=2]
-[ext_resource path="res://hellhound_icon1.png" type="Texture" id=3]
+[ext_resource path="res://hellhound_icon.tscn" type="PackedScene" id=3]
 [ext_resource path="res://button_press_sound.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sprites/logo.png" type="Texture" id=5]
 [ext_resource path="res://scenes/main_screen.gd" type="Script" id=6]
@@ -150,11 +150,7 @@ rect_min_size = Vector2( 374, 450 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="hellhound_icon" type="Sprite" parent="VBoxContainer/HBoxContainer/CenterContainer"]
-scale = Vector2( 0.6, 0.6 )
-texture = ExtResource( 3 )
-centered = false
-offset = Vector2( 40, 70 )
+[node name="hellhound_icon" parent="VBoxContainer/HBoxContainer/CenterContainer" instance=ExtResource( 3 )]
 [connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/new_game" to="." method="_on_new_game_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/new_game" to="." method="_on_new_game_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/HBoxContainer/ScrollContainer/VBoxContainer/unlocks" to="." method="_on_unlocks_mouse_entered"]

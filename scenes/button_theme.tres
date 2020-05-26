@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scenes/new_styleboxflat.tres" type="StyleBox" id=1]
 
-[sub_resource type="StyleBoxLine" id=8]
+[sub_resource type="StyleBoxLine" id=1]
 color = Color( 0.105882, 0.345098, 0.00784314, 1 )
 grow_begin = 0.0
 grow_end = -1.0
@@ -19,7 +19,7 @@ Button/fonts/font = null
 Button/styles/disabled = null
 Button/styles/focus = null
 Button/styles/hover = ExtResource( 1 )
-Button/styles/normal = SubResource( 8 )
+Button/styles/normal = SubResource( 1 )
 Button/styles/pressed = ExtResource( 1 )
 CheckBox/colors/font_color = Color( 0, 0, 0, 1 )
 CheckBox/colors/font_color_disabled = Color( 0, 0, 0, 1 )

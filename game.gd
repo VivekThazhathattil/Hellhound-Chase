@@ -34,7 +34,6 @@ func _ready():
 	screen_size = OS.get_screen_size()
 	time = 0
 	_update_wait_times()
-
 	
 	set_process(true)
 
@@ -88,5 +87,9 @@ func _on_timer_for_missile_timeout():
 	add_child(missile)
 
 func _modulate_colors():
-	$bg_new.modulate = lerp( get_modulate(), Color(randf(),randf(),randf()), 0.2)
-	$sky.modulate = lerp( get_modulate(), Color(randf(),randf(),randf()), 0.2)
+	#$bg_new.modulate = lerp( get_modulate(), Color(randf(),randf(),randf()), 0.2)
+	$bg_new/Tween.interpolate_property($bg_new, "modulate", $bg_new.modulate, Color(randf(),randf(),randf(),1), 3, Tween.TRANS_SINE, Tween.EASE_OUT)
+	$bg_new/Tween.start()
+	$sky/Tween.interpolate_property($sky, "modulate", $sky.modulate, Color(randf(),randf(),randf(),1), 4, Tween.TRANS_SINE, Tween.EASE_OUT)
+	$sky/Tween.start()	
+	#$sky.modulate = lerp( get_modulate(), Color(randf(),randf(),randf()), 0.2)
