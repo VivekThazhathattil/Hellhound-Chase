@@ -377,7 +377,7 @@ animations = [ {
 } ]
 
 [node name="special_item" type="Area2D"]
-position = Vector2( 1278.24, 189.213 )
+position = Vector2( 1278.24, 200 )
 script = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]

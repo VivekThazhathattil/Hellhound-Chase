@@ -160,7 +160,8 @@ scale = Vector2( 0.005, 0.005 )
 shape = SubResource( 1 )
 
 [node name="missile_body" type="AnimatedSprite" parent="."]
-scale = Vector2( 0.6, 0.3 )
+visible = false
+scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 27 )
 animation = "stable"
 
@@ -175,5 +176,10 @@ targetPath = NodePath("..")
 trailLength = 15
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[node name="ghost timer" type="Timer" parent="."]
+wait_time = 0.001
+autostart = true
 [connection signal="body_entered" from="." to="." method="_on_missile_body_entered"]
 [connection signal="viewport_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_viewport_exited"]
+[connection signal="timeout" from="ghost timer" to="." method="_on_ghost_timer_timeout"]

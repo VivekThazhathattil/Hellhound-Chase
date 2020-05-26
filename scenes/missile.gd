@@ -6,6 +6,7 @@ var active = true
 var time
 var ampl
 var fix_y
+var mis_col
 func _ready():
 	randomize()
 	time = 0
@@ -13,7 +14,8 @@ func _ready():
 	ampl = rand_range(-800,100)
 	spin = rand_range(-PI, PI)
 	pos = Vector2(1316,rand_range(370,390))
-	modulate = Color(randf(),randf(),randf(),1)
+	mis_col = Color(randf(),randf(),randf())
+	modulate = mis_col
 	$missile_body.play("stable")
 	set_process(true)
 	
@@ -44,3 +46,11 @@ func _on_missile_body_entered(body):
 
 func _on_VisibilityNotifier2D_viewport_exited(_viewport):
 	get_node(".").queue_free()
+
+
+func _on_ghost_timer_timeout():
+	var this_ghost = preload("res://ghost.tscn").instance()
+	get_parent().add_child(this_ghost)
+	this_ghost.position = position
+	this_ghost.texture = $missile_body.frames.get_frame($missile_body.animation,$missile_body.frame)
+	this_ghost.flip_h = true

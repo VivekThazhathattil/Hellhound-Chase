@@ -27,13 +27,12 @@ func _on_chaser_area_body_entered(body):
 
 func _chaser_death_event():
 	$chaser.play("deteriorate")
-	print("temp level " + str(temp_level))
 	position.x -= 10
 	if get_node("/root/game").level < 100 and level_update_flag == 0:
 		temp_level += 1
-		print(get_parent().level)
 		if temp_level*2 >= get_parent().level:
 			get_parent().level += 1
+			get_parent()._modulate_colors()
 			get_parent()._update_wait_times()
 			temp_level = 0
 		level_update_flag = 1

@@ -9,7 +9,7 @@ extends Area2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	position.y = rand_range(100,360)
+	position.y = rand_range(200,360)
 	position.x = 1300
 	$special_item_sprite.play("idle")
 func _process(delta):

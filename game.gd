@@ -17,6 +17,7 @@ var dodge_bonus = 0
 var tot_score = 0
 var item_count = 0
 const max_levels = 100
+
 func _ready():
 	$second_menu.visible = false
 	scorebox = h.instance()
@@ -49,7 +50,7 @@ func _process(delta):
 	else:
 			tot_score += level
 			scorebox.update_score(tot_score)
-			
+
 func _player_death_event():
 		$second_menu.visible = true
 		get_node("/root/game/chaser_area/chaser").play("idle")
@@ -74,3 +75,7 @@ func _on_timer_for_spec_item_timeout():
 func _on_timer_for_missile_timeout():
 	missile = s.instance()
 	add_child(missile)
+
+func _modulate_colors():
+	$bg_new.modulate = lerp( get_modulate(), Color(randf(),randf(),randf()), 0.2)
+	$sky.modulate = lerp( get_modulate(), Color(randf(),randf(),randf()), 0.2)
